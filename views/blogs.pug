@@ -1,0 +1,26 @@
+extends layout.pug 
+
+block content
+    section
+        ul.my-blogs 
+            li.blog-item 
+                a() Random Title 
+                a().del DELETE  
+        ul.my-blogs 
+            li.blog-item 
+                a() Not Random Title 
+                a().del DELETE  
+        ul.my-blogs 
+            li.blog-item 
+                a() Random Not Title 
+                a().del DELETE  
+        //if blogs.length 
+            ul.my-blogs
+                each item in blogs
+                    li.blog-item 
+                        a(href=`my-blogs/${ blog.id }`)= blog.title
+                        a.delete(href=`my-blogs/${ blog.id }/delete`) Delete
+        //else
+            .empty
+                p Seems like there are no blogs to read
+                a(href="/create") Create One 

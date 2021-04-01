@@ -1,0 +1,24 @@
+extends layout.pug 
+
+block content 
+    .create-content
+        section.create-form 
+            h2.form-title Create a Blog
+    
+        if success
+            p.success Blog added successfully
+
+        if error
+            .error
+            p Looks like something is missing
+            p Please try again later :)
+
+        form(method="post")
+            label.label Title
+            input(class="blog-title" name="title")
+      
+            label.label Content
+            textarea(class="blog-content" name="content" rows="10" style="resize: none")
+            .btns
+                a(href="").create-btn Submit
+                a(href="/").cancel Cancel 

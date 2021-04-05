@@ -1,39 +1,43 @@
 const express = require('express')
-const router = express.router()
+const router = express.Router()
 
+const path = require('path')
 const fs = require('fs')
+
+const Validator = require('../localModules').dataValidator
+
+const BlogsDB = require('../dbClass')
+
+const blogDatabase = new BlogsDB()
+blogDatabase.findDatabase('my-blogs.json')
+
+router.get('/', (req, res) => {
+    blogDatabase.getAll(
+        blogs => res.render('blogs', { items: blogs }), 
+        () => res.render('blogs', { items: null })
+    )
+})
 
 router.get('/create', (req, res) => {
     res.render('create', {})
 })
 
 router.post('/create', (req, res) => {
-    let blogData = req.body
-
-    if(isValid(blogData)) {
-        fs.readFile(blogData, (err, data) => {
-            if (err) errorCb();
-      
-            const records = JSON.parse(data);
-      
-            records.push({
-                id: generateID(),
-                title: newRecord.title,
-                body: newRecord.body,
-            });
-      
-            fs.writeFile(blogData, JSON.stringify(records), err => {
-                if (err) errorCb();
-                successCb();
-            });
-        });
-    } else {
-
-    }
+    if(Validator(req.body)) {
+        blogDatabase.saveBlog(req.body, () => res.render('create', {success: true}))
+    } else res.render('create', {success: false, error: true})
 })
 
-function isValid(data) {
-    if(data.title.trim() === '' || data.content.trim() === '') {
-        return false
-    } else return true
-}
+router.get('/:id', (req, res) => {
+    blogDatabase.getBlog (
+        req.params.id,
+        blog => res.render('blogDetail', { item: blog })
+    )
+})
+
+router.get('/:id/delete', (req, res) => {
+    blogDatabase.delete(
+        req.params.id, () => res.redirect('/blogs'))
+})
+
+module.exports = router

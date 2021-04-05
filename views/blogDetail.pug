@@ -1,0 +1,7 @@
+extends layout.pug 
+
+block content 
+    section.blog 
+        h2.title= item.title
+        a(href=`/blogs/${item.id}/delete`) Delete 
+        p.blog-content= item.content 

@@ -122,19 +122,23 @@
     margin: 50px auto;
     position: relative;
 
+    .success, .error {
+        margin: 20px;
+
+        color: #585858ab;
+        font-weight: 550;
+
+        span {
+            color: rgb(38, 139, 18);
+            font-weight: 550;
+            font-size: 1.5em;
+        }
+    }
     .create-form {
 
         .form-title {
             font-size: 1.5em;
             color: rgb(158, 158, 158);
-        }
-
-        .succes {
-            
-        }
-
-        .error {
-            
         }
     }
 
@@ -223,6 +227,8 @@
 
         border-bottom: 2px solid #666;
         border-radius: 5px;
+
+        margin-bottom: 20px;
         padding: 5px 10px;
 
         .del {
@@ -241,6 +247,42 @@
         }
 
         .del:hover {
+            background: #000;
+        }
+    }
+
+    .empty {
+        display: flex;
+        justify-content: space-around;
+
+        align-items: center;
+
+        img {
+            width: 450px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        a {
+            font-size: 1em;
+            font-weight: 550;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+
+            background: rgb(82, 82, 82);
+
+            transition: 0.8s;
+            cursor: pointer;
+
+            border-radius: 3px;
+            border: 2px solid #000;
+
+            padding: 5px;
+        }
+
+        a:hover {
             background: #000;
         }
     }

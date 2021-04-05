@@ -17,12 +17,23 @@ block content
                     | Please try again later 
                     span :)
 
-        form(method="post")
-            label.label Title
-            input(class="blog-title" name="title")
+        if (!item === null) 
+            form(method="post")
+                label.label Title
+                input(class="blog-title" name="title" value=`${item.title}`)
       
-            label.label Content
-            textarea(class="blog-content" name="content" rows="10" style="resize: none")
-            .btns
-                button.create-btn Submit
-                a(href="/").cancel Cancel 
+                label.label Content
+                textarea(class="blog-content" name="content" rows="10"  style="resize: none" value=`${item.content}`)
+                .btns
+                    button.create-btn Update
+                    a(href="/blogs").cancel Cancel 
+        else   
+            form(method="post")
+                label.label Title
+                input(class="blog-title" name="title")
+      
+                label.label Content
+                textarea(class="blog-content" name="content" rows="10"  style="resize: none")
+                .btns
+                    button.create-btn Submit
+                    a(href="/").cancel Cancel 

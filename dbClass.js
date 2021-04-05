@@ -72,8 +72,10 @@ class BlogsDB {
             if(err) error()
 
             const blogs = JSON.parse(data)
-            const selectedBlog = blogs.filter(blog => blog.id == id)[0]
-            // TO DO
+            let selectedBlog = blogs.filter(blog => blog.id == id)[0]
+
+            success(selectedBlog)
+            
         })
     }
 }

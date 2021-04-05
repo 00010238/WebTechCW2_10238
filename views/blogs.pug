@@ -3,15 +3,19 @@ extends layout.pug
 block content
     section.my-blogs
         if items.length 
+            img(src="blogs.png", alt="")
             ul.all-blogs
                 each item in items
                     li.blog-item 
-                        a(href=`blogs/${ item.id }`)= item.title
-                        a.del(href=`blogs/${ item.id }/delete`) DELETE
+                        a.item-title(href=`blogs/${ item.id }`)= item.title
+                        .btns
+                            a(href=`/blogs/update/${item.id}` method="get") Update 
+                            a(href=`/blogs/${item.id}/delete`).del Delete
         else
             .empty
                 .container
                     p Seems like there are no blogs to read
                     a(href='/blogs/create').del Create One 
                 img(src="create.png", alt="")
+            
                 

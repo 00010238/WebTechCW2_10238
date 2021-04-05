@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/create', (req, res) => {
-    res.render('create', {})
+    res.render('create', {item: null})
 })
 
 router.post('/create', (req, res) => {
@@ -31,9 +31,20 @@ router.post('/create', (req, res) => {
 router.get('/:id', (req, res) => {
     blogDatabase.getBlog (
         req.params.id,
-        blog => res.render('blogDetail', { item: blog })
+        blog => res.render('blogDetail', {item: blog})
     )
 })
+
+router.get('/update/:id'), (req, res) => {
+    fs.readFile(findDatabase('my-blogs.json'), (err, data) => {
+        if(err) throw err
+    
+    const blogs = JSON.parse(data)
+    const blog = blogs.filter(blog => blog.id == req.params.id)[0]
+
+    res.render('create', {blog})
+    })
+}
 
 router.get('/:id/delete', (req, res) => {
     blogDatabase.delete(

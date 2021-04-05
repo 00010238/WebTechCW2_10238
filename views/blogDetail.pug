@@ -2,6 +2,11 @@ extends layout.pug
 
 block content 
     section.blog 
-        h2.title= item.title
-        a(href=`/blogs/${item.id}/delete`) Delete 
+        .container
+            .headline
+                h2.title= item.title
+                .btns
+                    a(href=`/blogs/update/${item.id}` method="get") Update 
+                    a(href=`/blogs/${item.id}/delete`).del Delete       
         p.blog-content= item.content 
+        

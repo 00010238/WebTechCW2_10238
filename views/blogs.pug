@@ -9,7 +9,8 @@ block content
                     li.blog-item 
                         a.item-title(href=`blogs/${ item.id }`)= item.title
                         .btns
-                            a(href=`/blogs/update/${item.id}` method="get") Update 
+                            //- UPDATE does NOT work, could not make it work
+                            a(href=`/`) Update
                             a(href=`/blogs/${item.id}/delete`).del Delete
         else
             .empty

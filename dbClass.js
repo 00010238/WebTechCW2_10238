@@ -42,7 +42,6 @@ class BlogsDB {
                 id: IdGenerator(),
                 title: newBlog.title,
                 content: newBlog.content
-                //
             })
             
             fs.writeFile(this.database, JSON.stringify(blogs), err => {
@@ -64,18 +63,6 @@ class BlogsDB {
                 if(err) error()
                 succes()
             })
-        })
-    }
-
-    update(id, success, error) {
-        fs.readFile(this.database, 'utf8', (err, data) => {
-            if(err) error()
-
-            const blogs = JSON.parse(data)
-            let selectedBlog = blogs.filter(blog => blog.id == id)[0]
-
-            success(selectedBlog)
-            
         })
     }
 }

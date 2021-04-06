@@ -438,4 +438,17 @@
             transform: translateY(-20px);
   }
 }
+
+@media (max-width: 900px) {
+  .footer-container .footer-wrapper iframe {
+    width: 300px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-container .footer-wrapper iframe {
+    display: none;
+  }
+}
 /*# sourceMappingURL=general.css.map */

@@ -82,7 +82,7 @@
   margin: 50px auto;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr, 2);
+  -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
 }
 
@@ -448,6 +448,9 @@
 }
 
 @media (max-width: 600px) {
+  .main-section img {
+    display: none;
+  }
   .footer-container .footer-wrapper iframe {
     display: none;
   }

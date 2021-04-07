@@ -441,6 +441,9 @@
 } 
 
 @media (max-width: 600px) {
+    .main-section img {
+        display: none;
+    }
     .footer-container {
         .footer-wrapper {
             iframe {

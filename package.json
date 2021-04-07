@@ -4,7 +4,7 @@
   "description": "Web Tech CW2",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "00010238",
   "license": "ISC",

@@ -10,7 +10,7 @@ block content
                         a.item-title(href=`blogs/${ item.id }`)= item.title
                         .btns
                             //- UPDATE does NOT work, could not make it work
-                            a(href=`/`) Update
+                            a(href=`/blogs/${item.id}/edit`) Edit
                             a(href=`/blogs/${item.id}/delete`).del Delete
         else
             .empty

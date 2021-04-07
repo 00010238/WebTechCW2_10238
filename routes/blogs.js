@@ -35,13 +35,18 @@ router.get('/:id', (req, res) => {
     )
 })
 
-router.get('/:id/update'), (req, res) => {
+router.get('/:id/edit', (req, res) => {
     blogDatabase.getBlog(
         req.params.id,
-        blog => res.redirect('/blogs/create', {item: blog})
+        blog => res.render('create', {item: blog})
     )
-    res.render('create', {item: blog})
-}
+})
+
+router.post('/:id/edit', (req, res) => {
+    if(Validator(req.body)) {
+        blogDatabase.update(req.body, req.params.id, () => res.render('create', {success: true, item: !null}))
+    } else res.render('create' , {success: false, error: true})
+})
 
 router.get('/:id/delete', (req, res) => {
     blogDatabase.delete(

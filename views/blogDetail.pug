@@ -6,7 +6,7 @@ block content
             .headline
                 h2.title= item.title
                 .btns
-                    a(href=`/blogs`) Update 
+                    a(href=`/blogs/${item.id}/edit`) Edit 
                     a(href=`/blogs/${item.id}/delete`).del Delete       
         p.blog-content= item.content 
-        
+    

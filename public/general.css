@@ -82,7 +82,7 @@
   margin: 50px auto;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
+  -ms-grid-columns: (1fr, 2);
       grid-template-columns: repeat(2, 1fr);
 }
 
@@ -180,6 +180,7 @@
   -webkit-transition: 0.5s;
   transition: 0.5s;
   padding: 20px;
+  white-space: pre-wrap;
   border-bottom: #666 2px solid;
   border-radius: 5px;
   border-top: none;
@@ -197,7 +198,7 @@
   display: inline;
   position: absolute;
   right: 0px;
-  bottom: -25px;
+  bottom: -35px;
 }
 
 .create-content form .btns .create-btn, .create-content form .btns .cancel {

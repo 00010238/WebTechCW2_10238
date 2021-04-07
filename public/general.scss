@@ -179,6 +179,8 @@
 
             padding: 20px;
 
+            white-space: pre-wrap;
+
             border-bottom: #666 2px solid;
             border-radius: 5px;
             border-top: none;
@@ -195,9 +197,10 @@
 
         .btns {
             display: inline;
+
             position: absolute;
             right: 0px;
-            bottom: -25px;
+            bottom: -35px;
             
             .create-btn, .cancel {
                 text-decoration: none;

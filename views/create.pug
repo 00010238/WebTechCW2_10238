@@ -2,13 +2,19 @@ extends layout.pug
 
 block content 
     .create-content
-        section.create-form 
-            h2.form-title Create a Blog
-    
-        if success
-            p.success 
-                | Blog added successfully 
-                span ✓✓✓
+        section.create-form
+            if (item == null) 
+                h2.form-title Create a Blog
+                if success
+                    p.success 
+                    | Blog added successfully 
+                    span ✓✓✓
+            else 
+                h2.form-title Update
+                if success
+                    p.success 
+                    | Blog edited successfully 
+                    span ✓✓✓
 
         if error
             .error
@@ -17,17 +23,7 @@ block content
                     | Please try again later 
                     span :)
 
-        if (!item === null) 
-            form(method="post")
-                label.label Title
-                input(class="blog-title" name="title" value=`${item.title}`)
-      
-                label.label Content
-                textarea(class="blog-content" name="content" rows="10"  style="resize: none" value=`${item.content}`)
-                .btns
-                    button.create-btn Update
-                    a(href="/blogs").cancel Cancel 
-        else   
+        if (item == null) 
             form(method="post")
                 label.label Title
                 input(class="blog-title" name="title")
@@ -36,4 +32,18 @@ block content
                 textarea(class="blog-content" name="content" rows="10"  style="resize: none")
                 .btns
                     button.create-btn Submit
-                    a(href="/").cancel Cancel 
+                    a(href="/").cancel Cancel  
+        else  
+            form(method="post")
+                label.label Title
+                if (item.title == undefined)
+                    input(class="blog-title" name="title")
+                else
+                    input(class="blog-title" name="title" value=`${item.title}`)
+      
+                label.label Content
+                textarea(class="blog-content" name="content" rows="10"  style="resize: vertical" )= item.content
+                .btns
+                    button.create-btn Edit
+                    a(href="/blogs").cancel Cancel 
+        

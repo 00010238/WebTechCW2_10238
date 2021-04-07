@@ -52,6 +52,31 @@ class BlogsDB {
         })    
     }
 
+    update(selectedBlog, id, success, error) {
+        fs.readFile(this.database, 'utf8', (err, data) => {
+            if(err) error()
+
+            const blogs = JSON.parse(data)
+            const updated = blogs.filter(blog => blog.id != id) || []
+
+            let blog = blogs.filter(blog => blog.id == id)[0]
+
+            blog = {
+                id: id,
+                title: selectedBlog.title,
+                content: selectedBlog.content
+            }
+
+            updated.push(blog)
+
+            fs.writeFile(this.database, JSON.stringify(updated), err => {
+                if(err) error()
+
+                success()
+            })
+        })
+    }
+
     delete(id, succes, error) {
         fs.readFile(this.database, 'utf8', (err, data) => {
             if(err) error()

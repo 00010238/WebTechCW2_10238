@@ -447,6 +447,12 @@
   }
 }
 
+@media (max-width: 750px) {
+  .main-section img {
+    width: 350px;
+  }
+}
+
 @media (max-width: 600px) {
   .main-section img {
     display: none;

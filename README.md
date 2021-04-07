@@ -6,7 +6,7 @@ The current blog application was made in order to meet the requirements of Web T
 
 Open the links provided below to test the application or to see the source code
 [Source Code](https://github.com/00010238/WebTechCW2_10238)
-[Glitch]()
+[Glitch](https://vigorous-cuboid-tv.glitch.me/)
 
 To run the app locally, please follow the steps below:
 

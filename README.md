@@ -5,7 +5,7 @@ The current blog application was made in order to meet the requirements of Web T
 ## Usage
 
 Open the links provided below to test the application or to see the source code
-[Source Code]()
+[Source Code](https://github.com/00010238/WebTechCW2_10238)
 [Glitch]()
 
 To run the app locally, please follow the steps below:
@@ -17,7 +17,7 @@ To run the app locally, please follow the steps below:
 ## Contribution
 
 The project was done only to meet the module's coursework requirements. 
-For any changes or suggestions, please first contact the author: [00010238]() 
+For any changes or suggestions, please first contact the author: [00010238](mailto:mrx7617@gmail.com) 
 
 ## Dependencies
 
